@@ -4,6 +4,7 @@ import mysql from "../db/mysqlConnect";
 function forDate(field: string): string {
   return `DATE_FORMAT(${field}, '%Y/%m/%d') ${field}`;
 }
+//legal isso
 
 export default {
   getLogin: (param: object) => {
