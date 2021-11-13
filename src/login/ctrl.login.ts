@@ -4,13 +4,14 @@ import per from "../services/per.controllers";
 import { NextFunction, Response, Request } from "express";
 import md5 from "md5";
 
-interface iTry {
-  try: string
-  minutes: string
-}
+// interface iTry {
+//   try: string
+//   minutes: string
+// }
 
 const controllers = {
   getLogin: async (req: Request) => {
+
     try {
       if (req.body.email == "") return { error: "noEmail" };
       if (req.body.pass == "") return { error: "noPass" };
