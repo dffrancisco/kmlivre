@@ -1,0 +1,23 @@
+###
+POST http://localhost:4040/trajeto
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiOWU2ODhjNThhNTQ4N2I4ZWFmNjljOWUxMDA1YWQwYmYiLCJuYW1lIjoiRnJhbmNpc2NvIiwiZW1haWwiOiJkZmZyYW5jaXNjb0BnbWFpbC5jb20iLCJwaG9uZSI6Iig2MSkgOTkyNTg3LTc4MDgiLCJpYXQiOjE2MzY0NjE4MTcsImV4cCI6MTY0NTEwMTgxN30.ZFVoC4gy6gfpyQxd7gGKLkaBFuuMwF3XnwCQHgmuaUA
+
+{
+    "call": "getTrajetos",
+    "param":{
+        "id_user":2        
+    }
+}
+
+###
+POST http://localhost:4040/trajeto
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiOWU2ODhjNThhNTQ4N2I4ZWFmNjljOWUxMDA1YWQwYmYiLCJuYW1lIjoiRnJhbmNpc2NvIiwiZW1haWwiOiJkZmZyYW5jaXNjb0BnbWFpbC5jb20iLCJwaG9uZSI6Iig2MSkgOTkyNTg3LTc4MDgiLCJpYXQiOjE2MzY0NjE4MTcsImV4cCI6MTY0NTEwMTgxN30.ZFVoC4gy6gfpyQxd7gGKLkaBFuuMwF3XnwCQHgmuaUA
+
+{
+    "call": "getTrajetoAberto",
+    "param":{
+        "id_user":2        
+    }
+}

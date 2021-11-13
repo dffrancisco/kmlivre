@@ -1,0 +1,12 @@
+###
+POST http://localhost:4040/login
+Content-Type: application/json
+
+{
+    "call": "getLogin",
+    "param":{
+        "email":"dffrancisco@gmail.com",
+        "pass":"74b18bd595d6715fa2ef6c4743a081c1"
+    }
+
+}
