@@ -1,23 +1,12 @@
 import sql from "./sql.trajeto";
 import per from "../services/per.controllers";
 import { NextFunction, Response, Request } from "express";
+import { iUsuario } from '../models/interfaces'
 import util from "../services/util";
-const nDate = new Date().toLocaleString('bt-BR', {
-  timeZone: 'America/Sao_Paulo'
-});
+import moment from 'moment'
 
-interface iTry {
-  try: string
-  minutes: string
-}
-
-interface iUsuario {
-  id_user: string
-  name: string
-  email: string
-  phone: string
-  access: string
-}
+// const nDate = new Date().toLocaleString('bt-BR', { timeZone: 'America/Sao_Paulo' });
+moment.locale('pt-br');
 
 const controllers = {
   usuario: <iUsuario>{},
@@ -29,6 +18,42 @@ const controllers = {
   getTrajetoAberto: async (req: Request) => {
     return await sql.getTrajetoAberto(controllers.usuario.id_user)
   },
+
+  async iniciaTrajeto(req: Request) {
+
+    let { param } = req.body
+
+    param.data = moment().format('YYYY-MM-DD')
+    param.hora = moment().format('LTS')
+    param.id_user = controllers.usuario.id_user
+
+
+    try {
+      await sql.iniciaTrajeto(param)
+      return { msg: 'ok' }
+    } catch (error) {
+      return { error: error }
+    }
+
+  },
+
+  async finalizarTrajeto(req: Request) {
+    let { param } = req.body
+
+    param.data = moment().format('YYYY-MM-DD')
+    param.hora = moment().format('LTS')
+    param.id_user = controllers.usuario.id_user
+
+    try {
+      await sql.finalizarTrajeto(param)
+      return { msg: 'ok' }
+    } catch (error) {
+      return { error: error }
+    }
+
+  }
+
+
 };
 
 export default (req: Request, res: Response, next: NextFunction) =>
