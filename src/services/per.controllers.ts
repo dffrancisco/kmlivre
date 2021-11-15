@@ -1,5 +1,6 @@
 import { NextFunction, Response, Request } from "express";
 import auth from "./auth";
+import util from "./util";
 
 export default async (
   req: Request,
@@ -10,10 +11,19 @@ export default async (
   try {
     if (req.body.call == undefined) throw new Error("call not found");
 
+    if (req.headers['authorization'] != undefined) {
+      controllers.usuario = await auth.decodeToken(req.headers['authorization'])
+      controllers.usuario.id_user = util.base64_decode(controllers.usuario.id_user)
+    }
+
     if (controllers[req.body.call] == undefined)
       throw new Error("function undefined in controllers");
 
+    console.log();
+
     let rs = await controllers[req.body.call](req, res, next);
+
+
 
     if (rs.status != undefined) return res.status(rs.status).send(rs.data);
 

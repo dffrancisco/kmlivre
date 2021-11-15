@@ -8,9 +8,10 @@ function forDate(field: string): string {
 
 export default {
   getLogin: (param: object) => {
-    let sql = `SELECT id_user, name, email, phone FROM km_user
+    let sql = `SELECT id_user, name, email, phone, access FROM km_user
                 WHERE email = :email
                 AND pass = :pass
+                and active = 'S'
                LIMIT 1`;
     sql = prepare.prepareSQL(sql, param);
 

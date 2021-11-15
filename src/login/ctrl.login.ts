@@ -2,7 +2,8 @@ import sql from "./sql.login";
 import authADM from "../services/auth";
 import per from "../services/per.controllers";
 import { NextFunction, Response, Request } from "express";
-import md5 from "md5";
+// import md5 from "md5";
+import util from "../services/util";
 
 // interface iTry {
 //   try: string
@@ -41,7 +42,7 @@ const controllers = {
 
       sql.updateTry(req.ip);
 
-      user[0].id_user = md5(user[0].id_user);
+      user[0].id_user = util.base64_encode(user[0].id_user);
 
       let token = await authADM.generateToken(user[0], "100d");
 
