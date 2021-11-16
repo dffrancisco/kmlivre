@@ -17,23 +17,50 @@ moment.locale('pt-br');
 // console.log('HORA', moment().format('LTS'))
 
 const helper = {
+  getDateTime() {
+    const nDate = new Date().toLocaleString('bt-BR', { timeZone: 'America/Sao_Paulo' });
+    let _date = nDate.split(' ')[0]
+    let _time = nDate.split(' ')[1]
+    let _AM_PM = nDate.split(' ')[2]
+
+    if (_AM_PM == 'PM') {
+      let pm = [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0]
+      let am = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+      let t = _time.split(':');
+      let index = am.indexOf(Number(t[0]))
+      let h = pm[index]
+      t[0] = h.toString();
+      _time = `${t[0]}:${t[1]}:${t[2]}`
+
+    }
+
+    return {
+      date: _date,
+      time: _time
+    }
+  },
+
   getHora() {
     const nDate = new Date().toLocaleString('bt-BR', { timeZone: 'America/Sao_Paulo' });
-    console.log('sp', nDate.split(' '));
-    console.log('--', new Date().getHours());
+
+    // console.log('sp', nDate.split(' '));
+    // console.log('--', new Date().getHours());
     return moment(nDate, 'YYYY-MM-DD HH:mm:ss').format('HH:mm:ss')
   },
+
   getDate() {
     const nDate = new Date().toLocaleString('bt-BR', { timeZone: 'America/Sao_Paulo' });
-    console.log(nDate);
+    // console.log(nDate);
 
     return moment(nDate, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD')
   }
 }
 
+console.log(helper.getDateTime());
 
-console.log(helper.getHora(), 'hora');
-console.log(helper.getDate(), 'data');
+// console.log(helper.getHora(), 'hora');
+// console.log(helper.getDate(), 'data');
 
 const controllers = {
   usuario: <iUsuario>{},
@@ -52,8 +79,8 @@ const controllers = {
 
     // param.data = moment().format('YYYY-MM-DD')
     // param.hora = moment().format('LTS')
-    param.data = helper.getDate()
-    param.hora = helper.getHora()
+    param.data = helper.getDateTime().date
+    param.hora = helper.getDateTime().time
 
     param.id_user = controllers.usuario.id_user
 
@@ -72,8 +99,8 @@ const controllers = {
 
     // param.data = moment().format('YYYY-MM-DD')
     // param.hora = moment().format('LTS')
-    param.data = helper.getDate()
-    param.hora = helper.getHora()
+    param.data = helper.getDateTime().date
+    param.hora = helper.getDateTime().time
     param.id_user = controllers.usuario.id_user
 
     try {
