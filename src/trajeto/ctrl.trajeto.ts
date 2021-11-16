@@ -55,11 +55,6 @@ const helper = {
   }
 }
 
-console.log(helper.getDateTime());
-
-// console.log(helper.getHora(), 'hora');
-// console.log(helper.getDate(), 'data');
-
 const controllers = {
   usuario: <iUsuario>{},
 
@@ -75,8 +70,6 @@ const controllers = {
 
     let { param } = req.body
 
-    // param.data = moment().format('YYYY-MM-DD')
-    // param.hora = moment().format('LTS')
     param.data = helper.getDateTime().date
     param.hora = helper.getDateTime().time
 
