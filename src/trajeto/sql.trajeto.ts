@@ -42,7 +42,8 @@ export default {
                   f_hora= :hora,
                   f_latitude = :latitude,
                   f_longitude = :longitude		
-              WHERE id_user = :id_user`
+              WHERE id_router = :id_router
+              and id_user = :id_user`
 
     sql = prepare.prepareSQL(sql, param);
 

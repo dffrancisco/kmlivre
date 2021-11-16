@@ -22,6 +22,9 @@ const helper = {
     let _date = nDate.split(' ')[0]
     let _time = nDate.split(' ')[1]
     let _AM_PM = nDate.split(' ')[2]
+    let _d = _date.split('/')
+    _date = `${_d[2]}/${_d[1]}/${_d[0]}`
+
 
     if (_AM_PM == 'PM') {
       let pm = [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0]
@@ -43,16 +46,11 @@ const helper = {
 
   getHora() {
     const nDate = new Date().toLocaleString('bt-BR', { timeZone: 'America/Sao_Paulo' });
-
-    // console.log('sp', nDate.split(' '));
-    // console.log('--', new Date().getHours());
     return moment(nDate, 'YYYY-MM-DD HH:mm:ss').format('HH:mm:ss')
   },
 
   getDate() {
     const nDate = new Date().toLocaleString('bt-BR', { timeZone: 'America/Sao_Paulo' });
-    // console.log(nDate);
-
     return moment(nDate, 'YYYY-MM-DD HH:mm:ss').format('YYYY-MM-DD')
   }
 }
