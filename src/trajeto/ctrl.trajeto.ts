@@ -23,7 +23,7 @@ const helper = {
     let _time = nDate.split(' ')[1]
     let _AM_PM = nDate.split(' ')[2]
     let _d = _date.split('/')
-    _date = `${_d[2]}/${_d[1]}/${_d[0]}`
+    _date = `${_d[2].replace(',', '')}/${_d[1]}/${_d[0]}`
 
 
     if (_AM_PM == 'PM') {
