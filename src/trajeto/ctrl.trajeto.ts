@@ -55,6 +55,9 @@ const helper = {
   }
 }
 
+
+console.log(helper.getDateTime());
+
 const controllers = {
   usuario: <iUsuario>{},
 
