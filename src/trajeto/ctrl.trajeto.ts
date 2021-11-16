@@ -19,7 +19,8 @@ moment.locale('pt-br');
 const helper = {
   getHora() {
     const nDate = new Date().toLocaleString('bt-BR', { timeZone: 'America/Sao_Paulo' });
-    console.log(nDate);
+    console.log('sp', nDate.split(' '));
+    console.log('--', new Date().getHours());
     return moment(nDate, 'YYYY-MM-DD HH:mm:ss').format('HH:mm:ss')
   },
   getDate() {
