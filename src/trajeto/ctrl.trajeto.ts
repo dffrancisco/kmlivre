@@ -31,7 +31,6 @@ const helper = {
     else
       _date = `${_d[2]}/${_d[1]}/${_d[0]}`
 
-    console.log(nDate, _date, _time, _AM_PM, _d);
 
     if (_AM_PM == 'PM') {
       let pm = [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0]
@@ -111,6 +110,10 @@ const controllers = {
       return { error: error }
     }
 
+  },
+
+  async getUltimoTrajeto() {
+    return await sql.getUltimoTrajeto({ id_user: controllers.usuario.id_user })
   }
 
 

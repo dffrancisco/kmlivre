@@ -48,6 +48,18 @@ export default {
     sql = prepare.prepareSQL(sql, param);
 
     return mysql.query(sql);
+  },
+
+  getUltimoTrajeto(param: object) {
+    let sql = `SELECT f_km from km_router
+                WHERE id_user = :id_user
+                AND f_data IS NOT null
+                ORDER BY id_router DESC
+                LIMIT 1`
+
+    sql = prepare.prepareSQL(sql, param);
+
+    return mysql.query(sql);
   }
 
 
