@@ -23,6 +23,9 @@ const helper = {
     let _time = nDate.split(' ')[1]
     let _AM_PM = nDate.split(' ')[2]
     let _d = _date.split('/')
+
+    console.log(nDate, _date, _time, _AM_PM, _d);
+
     _date = `${_d[2].replace(',', '')}/${_d[1]}/${_d[0]}`
 
 
