@@ -24,10 +24,14 @@ const helper = {
     let _AM_PM = nDate.split(' ')[2]
     let _d = _date.split('/')
 
+
+    //quando ele vai para o servidor do google a data muda toda
+    if (_d[2].indexOf(',') > 0)
+      _date = `${_d[2].replace(',', '')}/${_d[0]}/${_d[1]}`
+    else
+      _date = `${_d[2]}/${_d[1]}/${_d[0]}`
+
     console.log(nDate, _date, _time, _AM_PM, _d);
-
-    _date = `${_d[2].replace(',', '')}/${_d[1]}/${_d[0]}`
-
 
     if (_AM_PM == 'PM') {
       let pm = [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 0]
