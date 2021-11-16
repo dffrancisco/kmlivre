@@ -3,10 +3,16 @@ import per from "../services/per.controllers";
 import { NextFunction, Response, Request } from "express";
 import { iUsuario } from '../models/interfaces'
 import util from "../services/util";
-import moment from 'moment'
+import moment from 'moment-timezone'
 
-// const nDate = new Date().toLocaleString('bt-BR', { timeZone: 'America/Sao_Paulo' });
+const nDate = new Date().toLocaleString('bt-BR', { timeZone: 'America/Sao_Paulo' });
 moment.locale('pt-br');
+
+moment().tz("America/Sao_Paulo").format();
+
+console.log('scp', nDate);
+
+console.log('mo', moment().format())
 
 const controllers = {
   usuario: <iUsuario>{},

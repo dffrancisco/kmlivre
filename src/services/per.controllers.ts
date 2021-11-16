@@ -19,11 +19,7 @@ export default async (
     if (controllers[req.body.call] == undefined)
       throw new Error("function undefined in controllers");
 
-    console.log();
-
     let rs = await controllers[req.body.call](req, res, next);
-
-
 
     if (rs.status != undefined) return res.status(rs.status).send(rs.data);
 
