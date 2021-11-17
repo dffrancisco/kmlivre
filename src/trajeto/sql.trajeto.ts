@@ -42,20 +42,7 @@ export default {
                   f_hora= :hora,
                   f_latitude = :latitude,
                   f_longitude = :longitude		
-              WHERE id_router = :id_router
-              and id_user = :id_user`
-
-    sql = prepare.prepareSQL(sql, param);
-
-    return mysql.query(sql);
-  },
-
-  getUltimoTrajeto(param: object) {
-    let sql = `SELECT f_km from km_router
-                WHERE id_user = :id_user
-                AND f_data IS NOT null
-                ORDER BY id_router DESC
-                LIMIT 1`
+              WHERE id_user = :id_user`
 
     sql = prepare.prepareSQL(sql, param);
 

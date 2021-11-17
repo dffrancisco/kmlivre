@@ -44,7 +44,6 @@ export default {
                     SET STATUS = 1
                     WHERE ip = '${ip}'
                     AND DATE(date_time) = CURDATE()`;
-
     mysql.query(sql);
   },
 };
