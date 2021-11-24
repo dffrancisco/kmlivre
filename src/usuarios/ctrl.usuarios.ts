@@ -28,9 +28,46 @@ const controllers = {
       return { error: "accessError" };
     }
 
-    return { msg: 'insert ok' }
-    sql.insertUsuario(req.body.param)
-  }
+    if (param.pass == "") {
+      return { error: "InvalidPass" };
+    }
+
+    return sql.insertUsuario(req.body.param)
+  },
+
+  alteraUsuario(req: Request) {
+
+    let param = req.body.param
+    let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    if ((param.name == "") || (param.pass == "") || (param.phone == "")) {
+      return { error: "Todos os campos precisa ser preenchidos" }
+    }
+
+    if (!param.email.match(emailFormat)) {
+
+      return { error: "emailInvalid" };
+    }
+
+    if (param.access.length >= 2) {
+      return { error: "accessError" };
+    }
+    return sql.alteraUsuario(req.body.param)
+  },
+
+  desativeUsuario(req: Request) {
+    return sql.desativeUsuario(req.body.param)
+  },
+
+  alteraPass(req: Request) {
+
+    let param = req.body.param
+
+    if (param.pass == "") {
+      return { error: "InvalidPass" };
+    }
+    return sql.alteraPass(req.body.param)
+  },
 
 
 };

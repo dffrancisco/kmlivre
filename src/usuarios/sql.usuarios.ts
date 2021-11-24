@@ -17,6 +17,38 @@ export default {
     sql = prepare.prepareSQL(sql, param);
 
     return mysql.query(sql);
+  },
+
+  alteraUsuario(param: object) {
+    let sql = `UPDATE km_user 
+    SET   name = :name, email = :email, phone = :phone, access = :access 
+    WHERE id_user = :id_user`;
+
+    sql = prepare.prepareSQL(sql, param);
+
+    return mysql.query(sql);
+  },
+
+
+  alteraPass(param: object) {
+    let sql = `UPDATE km_user 
+    SET   pass = :pass 
+    WHERE id_user = :id_user`;
+
+    sql = prepare.prepareSQL(sql, param);
+
+    return mysql.query(sql);
+  },
+
+
+  desativeUsuario(param: object) {
+    let sql = `UPDATE km_user 
+    SET   active = :active 
+    WHERE id_user = :id_user`;
+
+    sql = prepare.prepareSQL(sql, param);
+
+    return mysql.query(sql);
   }
 
 

@@ -27,15 +27,29 @@ Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiOWU2ODhjNThhNTQ4N2I4ZWFmNjljOWUxMDA1YWQwYmYiLCJuYW1lIjoiRnJhbmNpc2NvIiwiZW1haWwiOiJkZmZyYW5jaXNjb0BnbWFpbC5jb20iLCJwaG9uZSI6Iig2MSkgOTkyNTg3LTc4MDgiLCJpYXQiOjE2MzY0NjE4MTcsImV4cCI6MTY0NTEwMTgxN30.ZFVoC4gy6gfpyQxd7gGKLkaBFuuMwF3XnwCQHgmuaUA
 
 {
-    "call": "insertUsuario",
+    "call": "alteraUsuario",
     "param":{
         "name": "Kallebe",
-        "email": "kallebealves37@gmail.com",
+        "email":  "Kallebealves37@gmail.com",
         "pass": "74b18bd595d6715fa2ef6c4743a081c1",
-        "phone": "(61) 99564-0761",
-        "access": "3"
-
+        "phone": "(61)99564-0761",
+        "access": "3",
+        "id_user": 3
     }
     
 }
 
+
+###
+POST http://localhost:4040/usuarios
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c2VyIjoiOWU2ODhjNThhNTQ4N2I4ZWFmNjljOWUxMDA1YWQwYmYiLCJuYW1lIjoiRnJhbmNpc2NvIiwiZW1haWwiOiJkZmZyYW5jaXNjb0BnbWFpbC5jb20iLCJwaG9uZSI6Iig2MSkgOTkyNTg3LTc4MDgiLCJpYXQiOjE2MzY0NjE4MTcsImV4cCI6MTY0NTEwMTgxN30.ZFVoC4gy6gfpyQxd7gGKLkaBFuuMwF3XnwCQHgmuaUA
+
+{
+    "call": "alteraPass",
+    "param":{
+       "pass": "197713",
+        "id_user": 3
+    }
+    
+}
