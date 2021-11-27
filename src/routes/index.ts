@@ -5,7 +5,6 @@ import trajeto from '../trajeto/ctrl.trajeto'
 import usuarios from '../usuarios/ctrl.usuarios'
 
 
-
 const router = Router();
 const routers = [
   router.post("/login", login),

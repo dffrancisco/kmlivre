@@ -4,12 +4,14 @@ import mysql from "../db/mysqlConnect";
 function forDate(field: string): string {
   return `DATE_FORMAT(${field}, '%Y/%m/%d') ${field}`;
 }
+//legal isso
 
 export default {
   getLogin: (param: object) => {
-    let sql = `SELECT id_user, name, email, phone FROM km_user
+    let sql = `SELECT id_user, name, email, phone, access FROM km_user
                 WHERE email = :email
                 AND pass = :pass
+                and active = 'S'
                LIMIT 1`;
     sql = prepare.prepareSQL(sql, param);
 
@@ -42,6 +44,7 @@ export default {
                     SET STATUS = 1
                     WHERE ip = '${ip}'
                     AND DATE(date_time) = CURDATE()`;
+
     mysql.query(sql);
   },
 };
